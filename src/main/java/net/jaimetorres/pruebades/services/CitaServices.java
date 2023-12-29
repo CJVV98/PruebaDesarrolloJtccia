@@ -52,17 +52,21 @@ public class CitaServices {
 	 */
 	public ResponseJson consultarAgenda(String fecha, String horaInicio, String horaFin) {
 		ResponseJson response=new ResponseJson();
-
-		Date fechaInicio=Date.valueOf(fecha);
-		Time horaIni=Time.valueOf(horaInicio);
-		Time horaFinal=Time.valueOf(horaFin);
-		
-		List<CitaDto> citas=citaRepository.getAgenda(fechaInicio, horaIni, horaFinal);		
-		response.setObjeto(citas);
-		response.setStatus(HttpStatus.OK.value());
-		response.setMensaje("Consulta Exitosa");
+		try{
+			Date fechaInicio=Date.valueOf(fecha);
+			Time horaIni=Time.valueOf(horaInicio);
+			Time horaFinal=Time.valueOf(horaFin);
+			
+			List<CitaDto> citas=citaRepository.getAgenda(fechaInicio, horaIni, horaFinal);		
+			response.setObjeto(citas);
+			response.setStatus(HttpStatus.OK.value());
+			response.setMensaje("Consulta Exitosa");
+				
+		}catch(IllegalArgumentException e){
+			response.setMensaje("Error en consulta");
+			response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		}
 		return response;
-		
 		
 	}
 }
