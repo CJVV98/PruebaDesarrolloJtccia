@@ -1,4 +1,4 @@
-package net.jaimetorres.pruebades.repository;
+package net.jaimetorres.pruebades.testunit;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import net.jaimetorres.pruebades.entity.Paciente;
+import net.jaimetorres.pruebades.repository.PacienteRepository;
 
 
 @RunWith(SpringRunner.class )

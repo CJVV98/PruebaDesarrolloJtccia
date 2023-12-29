@@ -1,4 +1,4 @@
-package net.jaimetorres.pruebades.repository;
+package net.jaimetorres.pruebades.testunit;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
